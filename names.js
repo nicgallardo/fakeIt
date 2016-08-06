@@ -34,6 +34,38 @@ const library = {
     12: [],
     13: [],
   },
+  special: {
+    firstName:{
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: [],
+      10: [],
+      11: [],
+      12: [],
+      13: [],
+      14: [],
+    },
+    lastName:{
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: [],
+      10: [],
+      11: [],
+      12: [],
+      13: [],
+      14: [],
+    }
+  }
 }
 function splitter(longString){
   let splitted = longString.split(' ');
@@ -44,11 +76,29 @@ function splitter(longString){
       library.lastName[val.length].push(val);
     }
   })
+};
 
+function apost(longString){
+  let splitted = longString.split(' ');
+  _.each(splitted, (val, i) => {
+    if(i % 2 === 0){
+      const newVal = val.split('')
+      newVal.splice(1, 0, "'");
+      library.special.firstName[val.length + 1].push(newVal.join(''));
+    }else{
+      const newVal = val.split('')
+      newVal.splice(1, 0, "'");
+      library.special.lastName[val.length + 1].push(newVal.join(''));
+    }
+  })
+}
 
+let createLibrary = (longString) =>{
+  apost(longString);
+  splitter(longString);
   fs.writeFile('library.json', JSON.stringify(library, null, 4), function (err) {
-    if (err) return console.log(err);
+    if (err) return console.error(err);
     console.log('library written');
   });
-};
-splitter(names)
+}
+createLibrary(names);
