@@ -1,13 +1,12 @@
 {
-  "name": "fakeit",
-  "version": "1.0.0",
+  "name": "fake-length",
+  "version": "1.0.2",
   "description": "",
-  "main": "names.js",
+  "main": "index.js",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "fullstacknic@gmail.com",
   "license": "ISC"
 }
